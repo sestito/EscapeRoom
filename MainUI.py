@@ -19,6 +19,8 @@ class MainUI(QMainWindow):
         main_ui_file = os.path.join(default_path, self.ui_name)
         super().__init__()
         loadUi(main_ui_file, self)
+        self.showMaximized()
+        #self.showFullScreen()
 
 
 
@@ -40,8 +42,9 @@ class MainUI(QMainWindow):
 
 
     def start_video(self):
+        video: str = "Countdown.mp4"
         default_path = os.path.dirname(os.path.realpath(__file__))
-        file_path = os.path.join(default_path, "Countdown.mp4")
+        file_path = os.path.join(default_path, video)
 
        
         self.media_player.setSource(QUrl.fromLocalFile(file_path))

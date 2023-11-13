@@ -37,7 +37,7 @@
        <widget class="QLabel" name="Clock">
         <property name="font">
          <font>
-          <pointsize>18</pointsize>
+          <pointsize>80</pointsize>
          </font>
         </property>
         <property name="text">
@@ -106,7 +106,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="codeEntry">
           <property name="minimumSize">
            <size>
             <width>100</width>
@@ -143,14 +143,26 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="confirmCode">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>150</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Confirm Unlock Code</string>
+           <string>Confirm Code</string>
           </property>
          </widget>
         </item>
@@ -196,7 +208,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="codeStatus">
         <property name="font">
          <font>
           <pointsize>12</pointsize>

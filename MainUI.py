@@ -248,7 +248,8 @@ class MainUI(QMainWindow):
 
     def End(self):
         # Lock code enter thing
-        self.lockoutTimer.stop()
+        #self.lockoutTimer.stop()
+        pass
 
 
     def CheckCode(self):
@@ -271,6 +272,7 @@ class MainUI(QMainWindow):
         self.statusResetTimer.stop()
         self.enable_code(False)
         self.update_status("Locked Out!")
+        self.statusResetTimer.stop()
         self.lockoutTimer.start()
 
     def Unlock(self):

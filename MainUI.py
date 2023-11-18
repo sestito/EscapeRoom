@@ -27,8 +27,9 @@ def fix_time(disp_string: str):
 
 class MainUI(QMainWindow):
     ui_name: str = "MainUI.ui"
-    video: str = "Countdown.mp4"
-    debug = True
+    video: str = "EscapeRoomIntro.mp4"
+    debug = False
+    fullscreen = True
 
     def __init__(self, data):
         self.data = data
@@ -37,8 +38,10 @@ class MainUI(QMainWindow):
         main_ui_file = os.path.join(default_path, self.ui_name)
         super().__init__()
         loadUi(main_ui_file, self)
-        self.showMaximized()
-        #self.showFullScreen()
+        if self.fullscreen:
+            self.showFullScreen()
+        else:
+            self.showMaximized()
 
         self.enable_code(False)
         self.codeStatus.setText("")
@@ -183,7 +186,12 @@ class MainUI(QMainWindow):
         if seconds < self.start_second:
             # Before we are supposed to start
             seconds_until_start = self.start_second - seconds
-            disp_string = str(timedelta(seconds = seconds_until_start))
+            #Make it start at the video time
+            display_seconds = seconds_until_start
+            display_seconds -= int(self.data["INTRO"]["VideoLength"])
+            display_seconds -= int(self.data["INTRO"]["TimeAfterVideo"])
+            display_seconds -= int(self.data["INTRO"]["TimeStartTimer"])
+            disp_string = str(timedelta(seconds = display_seconds))
 
             # TODO: What do I do if I crash mid video?
             if seconds_until_start < self.startTime:

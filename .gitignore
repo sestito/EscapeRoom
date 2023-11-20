@@ -1,2 +1,3 @@
 *.pyc
 EscapeRoomIntro.mp4
+__pycache__/

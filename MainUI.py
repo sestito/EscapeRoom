@@ -30,6 +30,8 @@ class MainUI(QMainWindow):
     video: str = "EscapeRoomIntro.mp4"
     debug = False
     fullscreen = True
+    timer_timeout = 50 # 1000 = 1 second
+    text_reset_timer = 5 # Seconds
 
     def __init__(self, data):
         self.data = data
@@ -69,12 +71,12 @@ class MainUI(QMainWindow):
         #Timer Stuff
         # Second update timer
         self.preupdateTimer = QtCore.QTimer(self)
-        self.preupdateTimer.setInterval(100)
+        self.preupdateTimer.setInterval(self.timer_timeout)
         self.preupdateTimer.timeout.connect(self.PreTimerCallback)
 
         # Second update timer
         self.postupdateTimer = QtCore.QTimer(self)
-        self.postupdateTimer.setInterval(100)
+        self.postupdateTimer.setInterval(self.timer_timeout)
         self.postupdateTimer.timeout.connect(self.PostTimerCallback)
 
         
@@ -128,7 +130,7 @@ class MainUI(QMainWindow):
 
         self.statusResetTimer = QtCore.QTimer(self)
         self.statusResetTimer.setSingleShot(True)
-        self.statusResetTimer.setInterval(5 * 1000)
+        self.statusResetTimer.setInterval(self.text_reset_timer * 1000)
         self.statusResetTimer.timeout.connect(self.SetDefaultStatus)
 
         

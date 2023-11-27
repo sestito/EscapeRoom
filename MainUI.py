@@ -48,6 +48,7 @@ class MainUI(QMainWindow):
         self.enable_code(False)
         self.codeStatus.setText("")
         self.confirmCode.setText("")
+        self.codeEntry.setMaxLength(int(data["CODE"]["CodeLength"]))
         
 
         self.media_player = QMediaPlayer()

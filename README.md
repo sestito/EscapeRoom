@@ -1,6 +1,6 @@
 # EscapeRoom
 ## Software
-Requires Python 3! Was coded in Python 3.10.7
+Requires Python 3! Was coded in Python 3.10.7. Tested in 3.11.3 as well.
 
 Required Packages are: datetime, pyqt6, and pyqt6-tools
 
